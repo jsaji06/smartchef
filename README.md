@@ -1,8 +1,8 @@
 # smartChef
-![smartChef snapshot](./MacBook%20Pro%2016_%20-%2071.png)
+![smartChef snapshot](./smartchef-cover.png)
 
-smartChef is an AI-powered recipe assistant that generates curated meals based on user-provided ingredients or cooking goals (e.g. "high-protein desserts"), and the user's general cooking expertise.
 ---
+smartChef is an AI-powered recipe assistant that generates curated meals based on user-provided ingredients or cooking goals (e.g. "high-protein desserts"), and the user's general cooking expertise.
 
 ## 🚀 Features
 
@@ -49,7 +49,7 @@ smartChef is an AI-powered recipe assistant that generates curated meals based o
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/smartchef.git
+git clone https://github.com/jsaji06/smartchef
 cd smartchef
 ```
 
@@ -73,3 +73,27 @@ Enjoy!
 
 ## Demo Video 
 Coming soon!
+
+## Special Notes
+1. While, in theory, the installation and setup processes for this application should work, should you get an error that looks like the following:
+  ```bash
+  Error: Cannot find module '../src/assert'
+      Require stack:
+      - /Users/USERNAME/Downloads/smartchef-main 2/node_modules/.bin/concurrently
+          at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+          ...
+          at Module._load (node:internal/modules/cjs/loader:1023:12)
+          at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12) {
+        code: 'MODULE_NOT_FOUND',
+        requireStack: [
+          '/Users/USERNAME/Downloads/smartchef-main 2/node_modules/.bin/concurrently'
+        ]
+      }
+  ```
+Please run the following commands:
+  ```bash
+  rm -rf node_modules
+  rm package-lock.json # or yarn.lock if using yarn
+  npm install
+  ```
+This eliminates the possibility of any corrupt dependencies that can interfere with the application.
