@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');:root {
+  --primary-color: #0c0c0c;
+  --secondary-color: #9b66e5;
+  --teritary-color:#d5d5d5;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+* {
+  font-family:"DM Sans";
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:var(--secondary-color)
+}
+
+p {
+  color:var(--teritary-color)
+}
+
+.recipes {
+  display: flex;
+  gap: 30px;
+  margin:30px 0;
+}
+
+.ingredientsAndSteps {
+  display: flex;
+  gap: 200px;
+}
+
+.ingredientsAndSteps div {
+  margin: 10px 0;
+}
+
+.ingredientsAndSteps h3 {
+  font-size:26px;
+}
+
+.container {
+  margin: 100px 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#back {
+  border-radius: 100%;
+  padding: 5px;
+  border: 1px solid var(--secondary-color);
+  background: none;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  transition: .375s;
+}
+
+#back:hover {
+  background-color: black;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: .375s
+}
+
+.form {
+  display: flex;
+  gap: 30px;
+}
+
+button {
+  background-color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transition: .25s;
+}
+
+.form button,
+.recipe button {
+  padding: 10px 20px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transition: .25s;
+}
+
+
+.form input,
+.form select,
+button {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size:16px;
+}
+input, 
+input::placeholder,
+select::placeholder,
+select,
+option {
+  color: var(--secondary-color);
+}
+
+.gap {
+  height: 75px;
+}
+
+input:focus,
+option:focus {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+}
+
+h1 {
+  font-size: 72px;
+  margin:0;
+}
+
+p {
+  font-size:1.1em;
+}
+
+input.ingredients {
+  width: 60%;
+}
+
+.recipe h2 {
+  font-size: 28px;
+}
+
+.recipe h3 {
+  font-size: 12px;
+}
+
+#backBtn {
+  border-radius: 100%;
+  padding: 10px 10px;
+  border: 1px solid var(--secondary-color);
+
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+.steps {
+  width: 50%;
+}
+
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.assumedIngredient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+span.assumedIngredient .icon {
+  margin: 0px 5px;
+  font-size: .8em;
+}
+
+.assumedIngredient:hover {
+  cursor: pointer
+}
+
+.alert {
+  width: 600px;
+  height: 300px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 0;
+  padding: 10px;
+  margin: 0;
+  gap: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.alertBody * {
+  margin: 0;
+  margin-top: 20px;
+}
+
+h1.alertHeader {
+  font-size: 32px;
+
+}
+
+.alert p {
+  font-size: 16px;
+}
+
+.exitPrompt {
+  padding: 10px;
+  position: relative;
+  left: 95%;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height:100vh;
+}
+
+input:-webkit-autofill {
+  background-color: var(--primary-color) !important;
+  -webkit-box-shadow: 0 0 0px 1000px --primary-color inset !important;
+  -webkit-text-fill-color: var(--secondary-color) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.formFlex input {
+  background-color: var(--primary-color);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  font-size: 16px;
+  padding:2px
+}
+
+.formFlex select {
+  margin-left:30px;
+  background-color: transparent;
+  padding:5px;
+  border-color:var(--secondary-color);
+  border-radius: 3px;
+  color:var(--secondary-color);
+
+}
+
+.formFlex:focus {
+  outline:none
+}
+
+.formFlex button {
+  margin-right:20px;
+  margin-top:20px;
+}
+
+
+.formFlex h1 {
+  font-size: 32px;
+}
+
+.modal {
+  width: 550px;
+  height: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  background-color: var(--primary-color);
+  padding: 30px;
+  border-radius: 15px;
+  display:flex;
+  flex-direction: column;
+  gap:0px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  border:1px solid var(--secondary-color)
+}
+
+.modal h1 {
+  font-size:32px;
+  margin:0;
+}
+
+.modal p {
+  font-size:16px;
+}
+
+.modal button {
+  padding:7.5px 25px
+}
+
+.darkOverlay {
+  width: 100vw;
+  height: 150vh;
+  background-color: black;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+
+.recipe {
+  border:1px solid var(--secondary-color);
+  padding:20px;
+}
+
+.inputs {
+  margin:40px 0;
+}
+
+.body {
+  margin-top:50px;
+}
+
+.numRecipes 
+{
+  width: 15%;
+}
+
+.recipeHeader {
+  margin:25px 0;
+}
