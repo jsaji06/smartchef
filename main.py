@@ -14,7 +14,7 @@ import getpass
 class Ingredient(BaseModel):
     ingredient_name: str
     quantity:int
-    unit:list[Literal['whole', 'kg', 'g', 'lb', 'cup', 'tbsp', 'tsp', 'mL', 'L', 'small', 'medium', 'large', 'clove','piece','slice','leaf','sprig','stalk','inch','head','strip', 'scoop', 'pinch']]
+    unit:list[Literal['whole', 'kg', 'g', 'mg', 'lb', 'oz', 'L', 'mL', 'cup', 'tbsp', 'tsp', 'qt', 'pt', 'fl oz', 'small', 'medium', 'large', 'extra large', 'jumbo', 'clove', 'piece', 'slice', 'leaf', 'sprig', 'stalk', 'head', 'strip', 'inch', 'scoop', 'pinch', 'dash', 'drop', 'handful', 'bunch', 'knob', 'chunk', 'clump', 'sheet', 'square', 'round', 'ball', 'can', 'jar', 'bottle', 'pack', 'packet', 'box', 'bag', 'bar', 'stick', 'log', 'rib', 'ear', 'fillet', 'rack', 'block']]
     edited:bool
 
 class Recipe(BaseModel):
@@ -23,7 +23,7 @@ class Recipe(BaseModel):
     users_ingredients: Optional[list[str]]
     assumed_ingredients: Optional[list[str]]
     assumed_quantities: Optional[list[float]]
-    assumed_quantities_unit: Optional[list[Literal['whole', 'kg', 'g', 'lb', 'cup', 'tbsp', 'tsp', 'mL', 'L', 'small', 'medium', 'large', 'clove','piece','slice','leaf','sprig','stalk','inch','head','strip', 'scoop', 'pinch']]]
+    assumed_quantities_unit: Optional[list[Literal['whole', 'kg', 'g', 'mg', 'lb', 'oz', 'L', 'mL', 'cup', 'tbsp', 'tsp', 'qt', 'pt', 'fl oz', 'small', 'medium', 'large', 'extra large', 'jumbo', 'clove', 'piece', 'slice', 'leaf', 'sprig', 'stalk', 'head', 'strip', 'inch', 'scoop', 'pinch', 'dash', 'drop', 'handful', 'bunch', 'knob', 'chunk', 'clump', 'sheet', 'square', 'round', 'ball', 'can', 'jar', 'bottle', 'pack', 'packet', 'box', 'bag', 'bar', 'stick', 'log', 'rib', 'ear', 'fillet', 'rack', 'block']]]
     steps: list[str]
     calories: int
     protein: int
@@ -113,7 +113,7 @@ The rules which constitute whether an ingredient is valid or not are as follows?
   - **CRITICAL**: When validating 'whole' ingredients, do not consider 'whole' as an ingredient. It generally refers to an uncut, unmodified ingredient (think of a whole onion or whole lemon in this sense). In other words, PLEASE conside 'whole' as a unit rather than an ingredient, and do not invalidate the ingredient because of the misconception that "whole" is not an ingredient. For example, do not invalidate terms like '3 whole chicken' or '2 whole tomato", unless the unit/quantity is considered very unreasonable for the recipe.
 
 Special notes:
-    -  Should the user choose to edit an assumed ingredient, the choices for the units are restricted to the following: 'whole', 'kg', 'g', 'lb', 'cup', 'tbsp', 'tsp', 'mL', 'L', 'small', 'medium', 'large', 'clove','piece','slice','leaf','sprig','stalk','inch','head','strip', 'scoop', 'pinch'. Please take this to consideration when validating edited assumed ingredients.
+    -  Should the user choose to edit an assumed ingredient, the choices for the units are restricted to the following: 'whole', 'kg', 'g', 'mg', 'lb', 'oz', 'L', 'mL', 'cup', 'tbsp', 'tsp', 'qt', 'pt', 'fl oz', 'small', 'medium', 'large', 'extra large', 'jumbo', 'clove', 'piece', 'slice', 'leaf', 'sprig', 'stalk', 'head', 'strip', 'inch', 'scoop', 'pinch', 'dash', 'drop', 'handful', 'bunch', 'knob', 'chunk', 'clump', 'sheet', 'square', 'round', 'ball', 'can', 'jar', 'bottle', 'pack', 'packet', 'box', 'bag', 'bar', 'stick', 'log', 'rib', 'ear', 'fillet', 'rack', 'block'. Please take this to consideration when validating edited assumed ingredients.
 
 Please do not flag an ingredient as invalid if it contains units/quantities along with it. For example, '3 tbsp chicken' or "1 inch ginger" should not be flagged. However, '3 tbsp' or simply 'liters' may be flagged since there is no ingredient to be found.
 
@@ -176,7 +176,7 @@ You are a world-renowned, multi-Michelin star chef with decades of experience. A
 
 ## Strict Rules:
 - **NEVER mix categories**: Either use provided ingredients OR leave `users_ingredients` empty
-- Use ONLY these units: ['whole', 'kgs', 'g', 'lbs', 'cup', 'tbsp', 'tsp', 'mL', 'L', 'small', 'medium', 'large', 'clove', 'piece', 'slice', 'leaf', 'sprig', 'stalk', 'inch', 'head', 'strip', 'scoop', 'pinch']
+- Use ONLY these units: ['whole', 'kg', 'g', 'mg', 'lb', 'oz', 'L', 'mL', 'cup', 'tbsp', 'tsp', 'qt', 'pt', 'fl oz', 'small', 'medium', 'large', 'extra large', 'jumbo', 'clove', 'piece', 'slice', 'leaf', 'sprig', 'stalk', 'head', 'strip', 'inch', 'scoop', 'pinch', 'dash', 'drop', 'handful', 'bunch', 'knob', 'chunk', 'clump', 'sheet', 'square', 'round', 'ball', 'can', 'jar', 'bottle', 'pack', 'packet', 'box', 'bag', 'bar', 'stick', 'log', 'rib', 'ear', 'fillet', 'rack', 'block']
 - All units MUST be **singular** (e.g., "3.0 clove", not "cloves")
 - `assumed_quantities` and `assumed_quantities_unit` MUST match in length
 - Fill all fields: no empty arrays, strings, or placeholders
